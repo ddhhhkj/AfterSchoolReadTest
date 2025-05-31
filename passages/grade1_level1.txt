@@ -1,14 +1,25 @@
-This is the first story for grade 1, level 1.
-It is a sunny day. A cat sits on a mat.
-The cat is black.
+Lily the ladybug loved to explore. One sunny morning, she crawled onto a big, green leaf.
+"This leaf is so smooth!" she thought.
+Suddenly, a tiny drop of water, a dewdrop, landed right beside her. It sparkled like a diamond.
+Lily looked at her reflection in the dewdrop. She saw her own red shell with black spots.
 ---QUESTIONS---
-Q1: What color is the cat?
-A) White
-B) Black
-C) Brown
+Q1: What kind of bug is Lily?
+A) A bee
+B) A ladybug
+C) A spider
 Correct: B
-Q2: Where does the cat sit?
-A) On a chair
-B) On a mat
-C) On a table
+Q2: What did Lily crawl onto?
+A) A red flower
+B) A rough rock
+C) A big, green leaf
+Correct: C
+Q3: What landed beside Lily on the leaf?
+A) A crumb of bread
+B) A dewdrop
+C) Another ladybug
+Correct: B
+Q4: What did Lily see in the dewdrop?
+A) A tiny fish
+B) Her reflection
+C) A scary shadow
 Correct: B

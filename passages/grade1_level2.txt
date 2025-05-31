@@ -1,19 +1,25 @@
-A little frog hops in the green grass.
-The frog sees a big blue pond.
-It wants to swim. Hop, hop, splash!
+Sam has a blue kite. He likes to fly it at the park.
+The wind helps the kite go up, up, up into the sky.
+His dog, Max, barks at the kite. Max thinks it's a big bird!
+Sam laughs and holds the string tight.
 ---QUESTIONS---
-Q1: What color is the grass?
+Q1: What color is Sam's kite?
 A) Red
 B) Blue
 C) Green
+Correct: B
+Q2: Where does Sam like to fly his kite?
+A) At the beach
+B) In his backyard
+C) At the park
 Correct: C
-Q2: What does the frog want to do?
-A) Eat a fly
-B) Swim
-C) Sleep
+Q3: What does Max the dog think the kite is?
+A) A cloud
+B) A big bird
+C) A floating toy
 Correct: B
-Q3: How does the frog move?
-A) It runs
-B) It hops
-C) It crawls
-Correct: B
+Q4: What does Sam hold tight?
+A) Max's leash
+B) A balloon
+C) The kite string
+Correct: C

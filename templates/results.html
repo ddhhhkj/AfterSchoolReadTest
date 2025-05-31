@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results - Grade {{ grade }} Level {{ level }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect-answer {
+            color: red;
+            font-weight: bold;
+        }
+        .option-item {
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+        .option-item.correct { /* Correct option highlight */
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+        }
+        /* Submitted answer that is INCORRECT */
+        .option-item.submitted.incorrect {
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+        }
+        /* Submitted answer that is CORRECT - will also have .correct class */
+        .option-item.submitted.correct {
+             /* border: 2px solid #0d6efd; /* Optional: if you want to distinguish submitted correct from just correct */
+        }
+         .option-text-display { /* Class for the actual option text like "A) The answer" */
+            margin-left: 5px;
+        }
+        .answer-status { /* For "(Correct Answer)" or "(Your Answer)" text */
+            font-style: italic;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Results</h1>
+        <h2>Grade: {{ grade }}, Level: {{ level }}</h2>
+
+        {% if results %}
+            <h3>Your Score: <span class="{{ 'correct-answer' if results.score == results.total_questions and results.total_questions > 0 else 'incorrect-answer' }}">{{ results.score }}</span> out of {{ results.total_questions }}</h3>
+            <hr>
+
+            <h4>Detailed Results:</h4>
+            {% for item_result in results.summary %}
+            <div class="question-result" style="margin-bottom: 20px; padding:15px; border: 1px solid #ddd; border-radius:5px;">
+                <p><strong>Question {{ loop.index }}: {{ item_result.question_text }}</strong></p>
+
+                <ul>
+                    {% for option_text in item_result.options %}
+                        {% set option_char = option_text[0] %} {# Assumes option_text starts with 'A)', 'B)', etc. #}
+                        <li class="option-item
+                            {% if option_char == item_result.correct_answer %}correct{% endif %}
+                            {% if option_char == item_result.submitted_answer %}submitted {% if not item_result.is_correct %}incorrect{% endif %}{% endif %}">
+                            <span class="option-text-display">{{ option_text }}</span>
+                            {% if option_char == item_result.correct_answer %}
+                                <span class="answer-status correct-answer">(Correct Answer)</span>
+                            {% endif %}
+                            {% if option_char == item_result.submitted_answer and option_char != item_result.correct_answer %}
+                                <span class="answer-status incorrect-answer">(Your Answer)</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+        {% else %}
+            <p>No results to display. Please take the test first or try refreshing.</p>
+        {% endif %}
+
+        <div class="navigation-links" style="margin-top: 30px;">
+            <a href="{{ url_for('test_page', grade=grade, level=level) }}">Try Again (Level {{ level }})</a>
+            {% if show_next_level_link %}
+                <a href="{{ url_for('test_page', grade=grade, level=level + 1) }}">Next Level</a>
+            {% endif %}
+            {% if show_next_grade_link %}
+                 <a href="{{ url_for('test_page', grade=grade + 1, level=1) }}">Next Grade (Level 1)</a>
+            {% endif %}
+            <a href="{{ url_for('index') }}" style="background-color: #6c757d;">Back to Start Page</a>
+        </div>
+    </div>
+</body>
+</html>
