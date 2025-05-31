@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Test - Grade {{ grade }} Level {{ level }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reading Test</h1>
+        <h2>Grade: {{ grade }}, Level: {{ level }}</h2>
+
+        <div class="passage">
+            <h3>Passage</h3>
+            <p>{{ passage|safe }}</p>
+        </div>
+
+        {% if questions %}
+        <form method="POST" action="{{ url_for('test_page', grade=grade, level=level) }}">
+            <h3>Questions</h3>
+            {% for question in questions %}
+            <div class="question">
+                <p><strong>{{ loop.index }}. {{ question.text }}</strong></p>
+                <ul>
+                    {% for option_text in question.options %}
+                    <li>
+                        <label>
+                            <!-- Assuming option_text is like "A) Choice". We need to extract 'A' for the value -->
+                            <input type="radio" name="question_{{ loop.parent.index }}" value="{{ option_text[0] }}">
+                            {{ option_text }}
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+            <button type="submit">Submit Answers</button>
+        </form>
+        {% else %}
+        <p>No questions available for this passage.</p>
+        {% endif %}
+
+        <div class="navigation-links">
+            <a href="{{ url_for('test_page', grade=grade, level=level + 1) }}">Next Level</a>
+            {% if level > 1 %}
+            <a href="{{ url_for('test_page', grade=grade, level=level - 1) }}">Previous Level</a>
+            {% endif %}
+            {% if grade > 1 %}
+            <a href="{{ url_for('test_page', grade=grade - 1, level=1) }}">Previous Grade (L1)</a>
+            {% endif %}
+            <a href="{{ url_for('test_page', grade=grade + 1, level=1) }}">Next Grade (L1)</a>
+            <br>
+            <a href="{{ url_for('index') }}" style="background-color: #6c757d; margin-top:10px;">Back to Start Page</a>
+        </div>
+    </div>
+</body>
+</html>

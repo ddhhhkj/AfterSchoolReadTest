@@ -1,0 +1,19 @@
+A little frog hops in the green grass.
+The frog sees a big blue pond.
+It wants to swim. Hop, hop, splash!
+---QUESTIONS---
+Q1: What color is the grass?
+A) Red
+B) Blue
+C) Green
+Correct: C
+Q2: What does the frog want to do?
+A) Eat a fly
+B) Swim
+C) Sleep
+Correct: B
+Q3: How does the frog move?
+A) It runs
+B) It hops
+C) It crawls
+Correct: B

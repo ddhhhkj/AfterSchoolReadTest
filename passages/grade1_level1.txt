@@ -1,0 +1,14 @@
+This is the first story for grade 1, level 1.
+It is a sunny day. A cat sits on a mat.
+The cat is black.
+---QUESTIONS---
+Q1: What color is the cat?
+A) White
+B) Black
+C) Brown
+Correct: B
+Q2: Where does the cat sit?
+A) On a chair
+B) On a mat
+C) On a table
+Correct: B
